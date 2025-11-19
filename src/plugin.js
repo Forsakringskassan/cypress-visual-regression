@@ -144,7 +144,14 @@ async function toMatchScreenshotsPlugin(args) {
         "__screenshots__",
         `${fileName}.png`,
     );
+
     if (!fs.existsSync(expectedImage)) {
+        if (args.type === "base") {
+            await fsPromises.copyFile(actualImage, expectedImage);
+            cleanup(actualImage);
+            return;
+        }
+
         cleanup(actualImage);
         return {
             error: [
@@ -161,6 +168,12 @@ async function toMatchScreenshotsPlugin(args) {
     const percentage = result.rawMisMatchPercentage / 100;
 
     if (percentage > args.errorThreshold) {
+        if (args.type === "base") {
+            await fsPromises.copyFile(actualImage, expectedImage);
+            cleanup(actualImage);
+            return;
+        }
+
         await copyMismatchingFiles(
             actualImage,
             expectedImage,

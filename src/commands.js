@@ -94,23 +94,16 @@ function toMatchScreenshot(subject, screenshotOptions) {
         fileName,
     };
 
-    if (type === "actual") {
-        const options = {
-            fileName,
-            specDirectory: folderName,
-            type,
-            errorThreshold,
-            relative: Cypress.spec.relative,
-            testingType: Cypress.testingType,
-            testPath: Cypress.spec.absolute,
-        };
-        takeScreenshotsUntilMatch(args, options, retries);
-    } else if (type === "base") {
-        if (baseDelay) {
-            cy.wait(baseDelay);
-        }
-        takeScreenshot(args);
-    }
+    const options = {
+        fileName,
+        specDirectory: folderName,
+        type,
+        errorThreshold,
+        relative: Cypress.spec.relative,
+        testingType: Cypress.testingType,
+        testPath: Cypress.spec.absolute,
+    };
+    takeScreenshotsUntilMatch(args, options, retries);
 }
 
 Cypress.Commands.add(
