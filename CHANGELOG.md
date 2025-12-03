@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [3.1.0](https://github.com/Forsakringskassan/cypress-visual-regression/compare/v3.0.0...v3.1.0) (2025-12-03)
+
+### Features
+
+* type=`base` only updates base image if the difference exceeds the threshold (refs SFKUI-7447) ([6250e14](https://github.com/Forsakringskassan/cypress-visual-regression/commit/6250e144bcc14d4e24a8c80778cb827323fc890e))
+
 ## [3.0.0](https://github.com/Forsakringskassan/cypress-visual-regression/compare/v2.4.0...v3.0.0) (2025-08-25)
 
 ### ⚠ BREAKING CHANGES
