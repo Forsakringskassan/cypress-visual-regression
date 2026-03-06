@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("node:fs");
 
 const { PNG } = require("pngjs");
 
@@ -53,8 +53,7 @@ const parseImage = async (image) => {
         const fd = fs.createReadStream(image);
         fd.pipe(new PNG())
             .on("parsed", function () {
-                const that = this;
-                resolve(that);
+                resolve(this);
             })
             .on("error", (error) => reject(error));
     });

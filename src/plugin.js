@@ -1,6 +1,6 @@
 const fs = require("node:fs");
 const fsPromises = require("node:fs/promises");
-const path = require("path");
+const path = require("node:path");
 
 const { getSubfolderName } = require("./get-subfolder-name");
 const { compareImages } = require("./utils");
@@ -112,7 +112,7 @@ async function toMatchScreenshotsPlugin(args) {
     const { fileName } = args;
     const { testingType } = args;
     let { relative } = args;
-    relative = relative.replace(/\\/g, "/");
+    relative = relative.replaceAll("\\", "/");
 
     const actualImage = path.join(
         CYPRESS_SCREENSHOT_DIR,

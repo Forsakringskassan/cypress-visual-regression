@@ -5,7 +5,7 @@
  */
 function getSubfolderName(path, parentFolder) {
     const splitPath = path.split("/");
-    const parentFolderIndex = splitPath.findIndex((it) => it === parentFolder);
+    const parentFolderIndex = splitPath.indexOf(parentFolder);
 
     if (parentFolderIndex === -1) {
         throw new Error(`Could not find "${parentFolder}" in path "${path}"`);
