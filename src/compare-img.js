@@ -10,12 +10,13 @@
 /* eslint-disable sonarjs/no-redundant-assignments -- technical debt */
 /* eslint-disable sonarjs/no-implicit-global -- technical debt */
 /* eslint-disable sonarjs/no-nested-functions -- technical debt */
+/* eslint-disable unicorn/consistent-function-scoping -- technical debt */
 
 /*
 James Cryer / Huddle
 URL: https://github.com/Huddle/Resemble.js
 */
-const fs = require("fs");
+const fs = require("node:fs");
 const { PNG } = require("pngjs");
 
 var naiveFallback = function () {
@@ -184,7 +185,7 @@ var getGlobalThis = function () {
             var selected;
             var ignored;
 
-            if (boundingBoxes instanceof Array) {
+            if (Array.isArray(boundingBoxes)) {
                 selected = false;
                 for (i = 0; i < boundingBoxes.length; i++) {
                     boundingBox = boundingBoxes[i];
@@ -194,7 +195,7 @@ var getGlobalThis = function () {
                     }
                 }
             }
-            if (ignoredBoxes instanceof Array) {
+            if (Array.isArray(ignoredBoxes)) {
                 ignored = true;
                 for (i = 0; i < ignoredBoxes.length; i++) {
                     ignoredBox = ignoredBoxes[i];
@@ -305,10 +306,10 @@ var getGlobalThis = function () {
         function isColorSimilar(a, b, color) {
             var absDiff = Math.abs(a - b);
 
-            if (typeof a === "undefined") {
+            if (a === undefined) {
                 return false;
             }
-            if (typeof b === "undefined") {
+            if (b === undefined) {
                 return false;
             }
 
@@ -547,14 +548,11 @@ var getGlobalThis = function () {
                     return;
                 }
 
-                if (skip) {
-                    // only skip if the image isn't small
-                    if (
-                        verticalPos % skip === 0 ||
-                        horizontalPos % skip === 0
-                    ) {
-                        return;
-                    }
+                if (
+                    skip && // only skip if the image isn't small
+                    (verticalPos % skip === 0 || horizontalPos % skip === 0)
+                ) {
+                    return;
                 }
 
                 var offset = (verticalPos * width + horizontalPos) * 4;
@@ -662,7 +660,7 @@ var getGlobalThis = function () {
 
             data.getImageDataUrl = function (text) {
                 if (compareOnly) {
-                    throw Error(
+                    throw new Error(
                         "No diff image available - ran in compareOnly mode",
                     );
                 }
@@ -747,7 +745,7 @@ var getGlobalThis = function () {
                 errorPixel = options.errorPixel;
             }
 
-            pixelTransparency = isNaN(Number(options.transparency))
+            pixelTransparency = Number.isNaN(Number(options.transparency))
                 ? pixelTransparency
                 : options.transparency;
 
@@ -797,14 +795,8 @@ var getGlobalThis = function () {
                         triggerDataUpdate();
                         return;
                     }
-                    width =
-                        images[0].width > images[1].width
-                            ? images[0].width
-                            : images[1].width;
-                    height =
-                        images[0].height > images[1].height
-                            ? images[0].height
-                            : images[1].height;
+                    width = Math.max(images[0].width, images[1].width);
+                    height = Math.max(images[0].height, images[1].height);
 
                     if (
                         images[0].width === images[1].width &&
@@ -1057,9 +1049,9 @@ var getGlobalThis = function () {
         if (typeof opt.ignore === "string") {
             applyIgnore(compare, opt.ignore, toleranceSettings);
         } else if (opt.ignore && opt.ignore.forEach) {
-            opt.ignore.forEach(function (v) {
+            for (const v of opt.ignore) {
                 applyIgnore(compare, v, toleranceSettings);
-            });
+            }
         }
 
         compare.onComplete(function (data) {
