@@ -1,11 +1,13 @@
 {
     "compilerOptions": {
+        /* cypress enables deprecated downlevelIteration */
+        "ignoreDeprecations": "6.0",
         "target": "es2022",
         "declaration": true,
         "module": "esnext",
         "strict": true,
         "noImplicitAny": true,
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "allowSyntheticDefaultImports": true,
 
         /* https://github.com/cypress-io/cypress/issues/29519 */
