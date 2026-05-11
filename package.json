@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "build": "run-s build:*",
-    "build:dts": "dts-bundle-generator -o dist/commands.d.ts src/commands.d.ts && dts-bundle-generator -o dist/plugin.d.ts src/plugin.d.ts",
+    "build:dts": "dts-bundle-generator --no-check -o dist/commands.d.ts src/commands.d.ts && dts-bundle-generator --no-check -o dist/plugin.d.ts src/plugin.d.ts",
     "build:esbuild": "esbuild --bundle --platform=node --target=node20 --outdir=dist src/commands.js src/plugin.js",
     "eslint": "eslint .",
     "eslint:fix": "eslint --fix .",
@@ -62,7 +62,7 @@
     "@forsakringskassan/eslint-config": "14.1.20",
     "@forsakringskassan/eslint-config-jest": "14.1.9",
     "@forsakringskassan/eslint-config-typescript": "14.1.23",
-    "@forsakringskassan/jest-config": "30.2.0",
+    "@forsakringskassan/jest-config": "30.2.1",
     "@forsakringskassan/prettier-config": "3.3.9",
     "@html-validate/release-scripts": "7.1.20",
     "@types/jest": "30.0.0",
