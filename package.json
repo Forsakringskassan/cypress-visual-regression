@@ -25,7 +25,7 @@
   "scripts": {
     "build": "run-s build:*",
     "build:dts": "dts-bundle-generator --no-check -o dist/commands.d.ts src/commands.d.ts && dts-bundle-generator --no-check -o dist/plugin.d.ts src/plugin.d.ts",
-    "build:esbuild": "esbuild --bundle --platform=node --target=node20 --outdir=dist src/commands.js src/plugin.js",
+    "build:esbuild": "esbuild --bundle --platform=node --target=node22 --outdir=dist src/commands.js src/plugin.js",
     "eslint": "eslint .",
     "eslint:fix": "eslint --fix .",
     "lint": "npm run eslint",
@@ -65,8 +65,11 @@
     "@forsakringskassan/jest-config": "30.3.1",
     "@forsakringskassan/prettier-config": "3.5.0",
     "@html-validate/release-scripts": "7.2.2",
+    "@tsconfig/node22": "22.0.5",
+    "@tsconfig/recommended": "1.0.13",
+    "@tsconfig/strictest": "2.0.8",
     "@types/jest": "30.0.0",
-    "@types/node": "20.19.41",
+    "@types/node": "22.19.19",
     "cypress": "15.15.0",
     "dts-bundle-generator": "9.5.1",
     "esbuild": "0.28.0",
@@ -78,6 +81,6 @@
     "cypress": "^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0"
   },
   "engines": {
-    "node": ">= 20"
+    "node": "^22.16 || >= 24"
   }
 }
