@@ -33,7 +33,7 @@ export default [
         rules: {
             "@typescript-eslint/no-explicit-any": "off",
             "@typescript-eslint/unified-signatures": "off",
-            "import/no-unresolved": "off",
+            "import-x/no-unresolved": "off",
             "tsdoc/syntax": "off",
         },
     }),

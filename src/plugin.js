@@ -2,7 +2,6 @@ const fs = require("node:fs");
 const fsPromises = require("node:fs/promises");
 const path = require("node:path");
 
-const { getSubfolderName } = require("./get-subfolder-name");
 const { compareImages } = require("./utils");
 
 /** @type {string} */
@@ -53,38 +52,15 @@ function cleanup(filename) {
 }
 
 async function visualRegressionCopy(args) {
-    let { from, deleteFolder } = args;
-    const { absolute, specType, isHeadless, relativePath } = args;
+    let { deleteFolder } = args;
+    const { relativePath } = args;
     const folderName = path.join(CYPRESS_SCREENSHOT_DIR, "actual");
 
-    /* In version 10, Cypress.spec.name stops inkluding parent folder.
-     *  Screenshots in headless mode still include it, so need a workaround to make it work.
-     */
-    if (isHeadless && specType === "component") {
-        let parentFolder = absolute.split("/");
-        parentFolder = parentFolder.slice(-3, -1);
-        /**
-         * If first element is src, instead of the normal "components" or simular, that means
-         * we are working with a monorepo that has cypress tests in different packages
-         */
-        if (parentFolder[0] === "src") {
-            parentFolder = absolute.split("/").slice(-4, -1).join("/");
-        } else {
-            parentFolder = getSubfolderName(absolute, "src");
-        }
-        const checkFrom = path.join(parentFolder, from);
-
-        if (fs.existsSync(path.join(CYPRESS_SCREENSHOT_DIR, checkFrom))) {
-            from = checkFrom;
-        }
-    }
-
     if (fs.existsSync(path.join(CYPRESS_SCREENSHOT_DIR, "All Specs"))) {
-        from = "All Specs";
         deleteFolder = "All Specs";
     }
 
-    from = path.join(
+    const from = path.join(
         CYPRESS_SCREENSHOT_DIR,
         relativePath,
         `${args.fileName}.png`,

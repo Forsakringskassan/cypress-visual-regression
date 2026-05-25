@@ -8,7 +8,7 @@ export default defineConfig({
             /* defer importing this as Jenkins tries to load the config before
              * the plugin has been built */
             const { default: getToMatchScreenshotsPlugin } =
-                /* eslint-disable-next-line import/extensions -- need extension */
+                /* eslint-disable-next-line import-x/extensions -- need extension */
                 await import("./dist/plugin.js");
             config = getToMatchScreenshotsPlugin(on, config);
             return config;

@@ -2,6 +2,7 @@
 /* eslint-disable max-depth -- technical debt */
 /* eslint-disable no-prototype-builtins -- technical debt */
 /* eslint-disable no-undef -- technical debt */
+/* eslint-disable no-unassigned-vars -- technical debt */
 /* eslint-disable no-unused-vars -- technical debt */
 /* eslint-disable no-var -- technical debt */
 /* eslint-disable prefer-template -- technical debt */
