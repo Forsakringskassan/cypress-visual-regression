@@ -71,47 +71,48 @@ function toMatchScreenshot(subject, screenshotOptions) {
         $el: subject,
     });
 
-    let type = "actual";
-    if (Cypress.env("type") === "base") {
-        type = "base";
-    }
-    const defaultTreshold = 0.01;
-    const defaultRetries = 3;
-    let errorThreshold = defaultTreshold;
-    let baseDelay;
-    let retries = defaultRetries;
-    if (typeof screenshotOptions === "number") {
-        errorThreshold = screenshotOptions;
-    } else if (typeof screenshotOptions === "object") {
-        baseDelay = screenshotOptions.baseDelay || undefined;
-        retries = screenshotOptions.retries || defaultRetries;
-        errorThreshold = screenshotOptions.errorThreshold || defaultTreshold;
-    }
+    cy.env(["type"], { log: false }).then(({ type }) => {
+        type = type === "base" ? "base" : "actual";
 
-    const fileName = getFileName(Cypress.currentTest, Cypress.spec);
-    const folderName = getFolderName(Cypress.spec);
-    const args = {
-        type,
-        screenshotOptions,
-        subject,
-        folderName,
-        fileName,
-    };
+        const defaultTreshold = 0.01;
+        const defaultRetries = 3;
+        let errorThreshold = defaultTreshold;
+        let baseDelay;
+        let retries = defaultRetries;
+        if (typeof screenshotOptions === "number") {
+            errorThreshold = screenshotOptions;
+        } else if (typeof screenshotOptions === "object") {
+            baseDelay = screenshotOptions.baseDelay || undefined;
+            retries = screenshotOptions.retries || defaultRetries;
+            errorThreshold =
+                screenshotOptions.errorThreshold || defaultTreshold;
+        }
 
-    const options = {
-        fileName,
-        specDirectory: folderName,
-        type,
-        errorThreshold,
-        relative: Cypress.spec.relative,
-        testingType: Cypress.testingType,
-        testPath: Cypress.spec.absolute,
-    };
+        const fileName = getFileName(Cypress.currentTest, Cypress.spec);
+        const folderName = getFolderName(Cypress.spec);
+        const args = {
+            type,
+            screenshotOptions,
+            subject,
+            folderName,
+            fileName,
+        };
 
-    if (baseDelay) {
-        cy.wait(baseDelay);
-    }
-    takeScreenshotsUntilMatch(args, options, retries);
+        const options = {
+            fileName,
+            specDirectory: folderName,
+            type,
+            errorThreshold,
+            relative: Cypress.spec.relative,
+            testingType: Cypress.testingType,
+            testPath: Cypress.spec.absolute,
+        };
+
+        if (baseDelay) {
+            cy.wait(baseDelay);
+        }
+        takeScreenshotsUntilMatch(args, options, retries);
+    });
 }
 
 Cypress.Commands.add(
