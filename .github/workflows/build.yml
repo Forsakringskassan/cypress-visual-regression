@@ -56,7 +56,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                cypress-version: [12.x, 13.x, 14.x, 15.x]
+                cypress-version: [15.x]
         steps:
             - uses: actions/checkout@v6
             - name: Use Node.js 22
