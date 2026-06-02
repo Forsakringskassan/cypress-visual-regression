@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## [5.0.0](https://github.com/Forsakringskassan/cypress-visual-regression/compare/v4.0.0...v5.0.0) (2026-06-02)
+
+### ⚠ BREAKING CHANGES
+
+* Cypress.env will be deprecated in coming major and
+their migration guide points to use cy.env that was introduced in 15.10.0
+
+### Bug Fixes
+
+* migrate away from Cypress.env (refs SFKUI-7850) ([3648412](https://github.com/Forsakringskassan/cypress-visual-regression/commit/3648412f18e051c938ca89b282a46e9cc17030d5))
+
 ## [4.0.0](https://github.com/Forsakringskassan/cypress-visual-regression/compare/v3.1.0...v4.0.0) (2026-05-24)
 
 ### ⚠ BREAKING CHANGES
