@@ -36,7 +36,8 @@
     "prettier:write": "prettier --write .",
     "postpublish": "release-postpublish",
     "pretest": "run-s prettier:check eslint",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "commitlint-config"
   },
   "commitlint": {
     "extends": [
@@ -58,7 +59,7 @@
     "pngjs": "7.0.0"
   },
   "devDependencies": {
-    "@forsakringskassan/commitlint-config": "3.6.9",
+    "@forsakringskassan/commitlint-config": "4.0.0",
     "@forsakringskassan/eslint-config": "15.0.17",
     "@forsakringskassan/eslint-config-jest": "15.0.0",
     "@forsakringskassan/eslint-config-typescript": "15.0.16",
@@ -82,5 +83,11 @@
   },
   "engines": {
     "node": "^22.16 || >= 24"
+  },
+  "allowScripts": {
+    "cypress": false,
+    "esbuild": true,
+    "fsevents": false,
+    "unrs-resolver": true
   }
 }
