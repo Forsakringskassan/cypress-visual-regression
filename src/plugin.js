@@ -7,6 +7,12 @@ const { compareImages } = require("./utils");
 /** @type {string} */
 let CYPRESS_SCREENSHOT_DIR = "cypress/screenshots";
 
+/** @type {number} */
+let DEFAULT_THRESHOLD = 0.01;
+
+/** @type {number} */
+let DEFAULT_RETRIES = 3;
+
 /**
  * @param {{ screenshotsFolder?: string }} [config]
  */
@@ -14,6 +20,30 @@ function setupScreenshotPath(config = {}) {
     if (config.screenshotsFolder) {
         CYPRESS_SCREENSHOT_DIR = config.screenshotsFolder;
     }
+}
+
+/**
+ * Setup default values for threshold and retries.
+ * @param {{ options?: { threshold?: number, retries?: number } }}
+ */
+function setupVisualRegressionDefaults(options = {}) {
+    if (options.threshold) {
+        DEFAULT_THRESHOLD = options.threshold;
+    }
+    if (options.retries) {
+        DEFAULT_RETRIES = options.retries;
+    }
+}
+
+/**
+ * Gets current default values for threshold and retries.
+ * @returns {{ threshold: number, retries: number }}
+ */
+function visualRegressionDefaults() {
+    return {
+        threshold: DEFAULT_THRESHOLD,
+        retries: DEFAULT_RETRIES,
+    };
 }
 
 /**
@@ -206,13 +236,16 @@ const beforeBrowserLaunch = (browser, launchOptions) => {
     /* eslint-enable no-console */
 };
 
-function getToMatchScreenshotsPlugin(on, config) {
+function getToMatchScreenshotsPlugin(on, config, options = {}) {
     setupScreenshotPath(config);
+    setupVisualRegressionDefaults(options);
     on("before:browser:launch", beforeBrowserLaunch);
     on("task", {
         toMatchScreenshotsPlugin,
         visualRegressionCopy,
+        visualRegressionDefaults,
     });
+
     return config;
 }
 
