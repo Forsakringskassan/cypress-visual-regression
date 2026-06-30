@@ -142,6 +142,33 @@ You can also configure how many retries it will make.
 cy.toMatchScreenshot({ retries: 6 });
 ```
 
+### Setting default values
+
+You can configure default values such as threshold and retries for all screenshot comparisons by adding during plugin registration.
+
+```ts
+export default defineConfig({
+    e2e: {
+        setupNodeEvents(on, config) {
+            getToMatchScreenshotsPlugin(on, config, {
+                threshold: 0.05,
+                retries: 2,
+            });
+        },
+    },
+    component: {
+        setupNodeEvents(on, config) {
+            getToMatchScreenshotsPlugin(on, config, {
+                threshold: 0.05,
+                retries: 2,
+            });
+        },
+    },
+});
+```
+
+These defaults can be overridden in individual test calls.
+
 ### Saved base images and failing tests
 
 Base-images will be stored inside same directory in which the test is, in a sub-folder called `__screenshots__`. For example
