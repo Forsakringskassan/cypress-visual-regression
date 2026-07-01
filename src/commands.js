@@ -71,21 +71,30 @@ function toMatchScreenshot(subject, screenshotOptions) {
         $el: subject,
     });
 
+    let defaultThreshold;
+    let defaultRetries;
+
+    cy.task("visualRegressionDefaults", {
+        log: false,
+    }).then((defaults) => {
+        defaultThreshold = defaults.threshold;
+        defaultRetries = defaults.retries;
+    });
+
     cy.env(["type"], { log: false }).then(({ type }) => {
         type = type === "base" ? "base" : "actual";
 
-        const defaultTreshold = 0.01;
-        const defaultRetries = 3;
-        let errorThreshold = defaultTreshold;
-        let baseDelay;
+        let errorThreshold = defaultThreshold;
         let retries = defaultRetries;
+        let baseDelay;
+
         if (typeof screenshotOptions === "number") {
             errorThreshold = screenshotOptions;
         } else if (typeof screenshotOptions === "object") {
             baseDelay = screenshotOptions.baseDelay || undefined;
             retries = screenshotOptions.retries || defaultRetries;
             errorThreshold =
-                screenshotOptions.errorThreshold || defaultTreshold;
+                screenshotOptions.errorThreshold || defaultThreshold;
         }
 
         const fileName = getFileName(Cypress.currentTest, Cypress.spec);
