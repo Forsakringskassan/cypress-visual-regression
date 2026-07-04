@@ -20,7 +20,7 @@ jobs:
             - name: Install dependencies
               run: npm ci
             - name: Jest
-              run: npm exec jest -- --ci
+              uses: Forsakringskassan/jest-config@v30.4.0
             - name: Build
               run: npm run --if-present build
 
@@ -36,10 +36,10 @@ jobs:
             - name: Install dependencies
               run: npm ci
             - name: Prettier
-              run: npm run prettier:check
+              uses: Forsakringskassan/prettier-config@9f68ea9b6d1a3329ff59178e5cba8e3e6eafc407 # v3.7.6
             - name: ESLint
               if: success() || failure()
-              run: npm run eslint || false
+              uses: Forsakringskassan/eslint-config@8742bcf2942a0d25f09593c949076ec9aaedc95a # v15.2.0
 
     npm-pkg-lint:
         runs-on: ubuntu-latest
@@ -50,7 +50,7 @@ jobs:
             - name: Install Dependencies
               run: npm ci
             - name: npm-pkg-lint
-              uses: ext/npm-pkg-lint@master
+              uses: ext/npm-pkg-lint@b70ccc4ad5e23e66267070907ef88174419b99dc # v5.1.10
 
     cypress:
         runs-on: ubuntu-latest

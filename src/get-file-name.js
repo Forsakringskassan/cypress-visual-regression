@@ -19,7 +19,7 @@
 function getFileName(test, spec) {
     const fullTitle = test.titlePath.join(" ");
     const currentTest = fullTitle
-        /* eslint-disable-next-line sonarjs/slow-regex, sonarjs/regex-complexity -- technical debt */
+        /* eslint-disable-next-line regexp/optimal-lookaround-quantifier, sonarjs/regex-complexity -- technical debt */
         .match(/[A-Z]{2,}(?=[A-Z][a-z]+\d*|\b)|[A-Z]?[a-z]+\d*|[A-Z]|\d+/g)
         .map((x) => x.toLowerCase())
         .join("-");

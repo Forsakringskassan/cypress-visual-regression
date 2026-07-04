@@ -1,3 +1,4 @@
+const { expect, it } = require("@jest/globals");
 const { getFileName } = require("./get-file-name");
 
 /* from Cypres documentation: https://docs.cypress.io/api/cypress-api/currenttest */
