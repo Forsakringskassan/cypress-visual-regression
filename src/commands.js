@@ -2,7 +2,7 @@ const { getFileName } = require("./get-file-name");
 const { getFolderName } = require("./get-folder-name");
 
 function takeScreenshot(args) {
-    const deleteFolder = Cypress.spec.name.split("/")[0];
+    const deleteFolder = Cypress.spec.name.split("/", 1)[0];
     let from = Cypress.spec.name;
 
     if (Cypress.browser.isHeaded) {
@@ -53,9 +53,8 @@ function takeScreenshotsUntilMatch(args, options, remainingAttempts) {
             if (attemptsLeft === 0) {
                 if (args.type === "base") {
                     return;
-                } else {
-                    throw new Error(result.error);
                 }
+                throw new Error(result.error);
             }
             cy.log("Retrying after 200ms");
             cy.wait(200);

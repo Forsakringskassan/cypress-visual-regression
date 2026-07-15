@@ -6,12 +6,19 @@
 /* eslint-disable no-unused-vars -- technical debt */
 /* eslint-disable no-var -- technical debt */
 /* eslint-disable prefer-template -- technical debt */
-/* eslint-disable sonarjs/no-duplicated-branches -- technical debt */
 /* eslint-disable sonarjs/no-extra-arguments -- technical debt */
-/* eslint-disable sonarjs/no-redundant-assignments -- technical debt */
 /* eslint-disable sonarjs/no-implicit-global -- technical debt */
 /* eslint-disable sonarjs/no-nested-functions -- technical debt */
+/* eslint-disable sonarjs/no-redundant-assignments -- technical debt */
 /* eslint-disable unicorn/consistent-function-scoping -- technical debt */
+/* eslint-disable unicorn/no-break-in-nested-loop -- technical debt */
+/* eslint-disable unicorn/no-computed-property-existence-check -- technical debt */
+/* eslint-disable unicorn/no-nonstandard-builtin-properties -- technical debt */
+/* eslint-disable unicorn/prefer-logical-operator-over-ternary -- technical debt */
+/* eslint-disable unicorn/no-useless-else -- technical debt */
+/* eslint-disable sonarjs/no-duplicated-branches -- technical debt */
+/* eslint-disable unicorn/no-duplicate-if-branches -- technical debt */
+/* eslint-disable unicorn/prefer-unary-minus -- technical debt */
 
 /*
 James Cryer / Huddle
