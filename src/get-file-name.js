@@ -23,7 +23,7 @@ function getFileName(test, spec) {
         .match(/[A-Z]{2,}(?=[A-Z][a-z]+\d*|\b)|[A-Z]?[a-z]+\d*|[A-Z]|\d+/g)
         .map((x) => x.toLowerCase())
         .join("-");
-    const prefix = spec.name.split(".")[0].split("/").pop();
+    const prefix = spec.name.split(".", 1)[0].split("/").pop();
     return `${prefix} -- ${currentTest}`;
 }
 

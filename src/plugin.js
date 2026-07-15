@@ -108,18 +108,17 @@ async function toMatchScreenshotsPlugin(args) {
             await fsPromises.rename(actualImage, expectedImage);
             cleanup(actualImage);
             return {};
-        } else {
-            return {
-                error: [
-                    `Base image not found\n`,
-                    `'${expectedImage}'\n`,
-                    `Did you forget to create image?`,
-                    `Add environment variable 'type=base'\n`,
-                    `$ npm run cypress run -- --env type=base --${testingType} --spec **/${relative}\n`,
-                    `It is recommended to run the screenshot test individually with 'it.only' when creating base image`,
-                ].join("\n"),
-            };
         }
+        return {
+            error: [
+                `Base image not found\n`,
+                `'${expectedImage}'\n`,
+                `Did you forget to create image?`,
+                `Add environment variable 'type=base'\n`,
+                `$ npm run cypress run -- --env type=base --${testingType} --spec **/${relative}\n`,
+                `It is recommended to run the screenshot test individually with 'it.only' when creating base image`,
+            ].join("\n"),
+        };
     }
 
     const result = await compareImages(actualImage, expectedImage, {});
@@ -193,9 +192,7 @@ const beforeBrowserLaunch = (browser, launchOptions) => {
         );
         launchOptions.args.push(`--window-size=${width},${height}`);
         launchOptions.args.push("--force-device-scale-factor=1");
-    }
-
-    if (browser.name === "electron") {
+    } else if (browser.name === "electron") {
         launchOptions.preferences.width = width;
         launchOptions.preferences.height = height;
     }

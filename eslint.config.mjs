@@ -26,6 +26,9 @@ export default [
                 it: "readonly",
             },
         },
+        rules: {
+            "unicorn/prefer-await": "off",
+        },
     }),
 
     defineConfig({
