@@ -72,12 +72,13 @@
     "@tsconfig/strictest": "2.0.8",
     "@types/jest": "30.0.0",
     "@types/node": "22.20.1",
+    "@typescript/native": "npm:typescript@7.0.2",
     "cypress": "15.18.1",
     "dts-bundle-generator": "9.5.1",
     "esbuild": "0.28.1",
     "npm-pkg-lint": "5.1.11",
     "npm-run-all2": "9.0.2",
-    "typescript": "6.0.3"
+    "typescript": "npm:@typescript/typescript6@6.0.2"
   },
   "peerDependencies": {
     "cypress": "^15.10.0"
