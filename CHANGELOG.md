@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [5.1.0](https://github.com/Forsakringskassan/cypress-visual-regression/compare/v5.0.0...v5.1.0) (2026-08-06)
+
+### Features
+
+* adding option to set default values (refs SFKUI-7996) ([9c8d491](https://github.com/Forsakringskassan/cypress-visual-regression/commit/9c8d491df822574e8d6ebe9184a5b9ccf70580dd))
+
 ## [5.0.0](https://github.com/Forsakringskassan/cypress-visual-regression/compare/v4.0.0...v5.0.0) (2026-06-02)
 
 ### ⚠ BREAKING CHANGES
