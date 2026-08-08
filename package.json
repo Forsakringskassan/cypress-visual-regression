@@ -73,7 +73,7 @@
     "@types/jest": "30.0.0",
     "@types/node": "22.20.1",
     "@typescript/native": "npm:typescript@7.0.2",
-    "cypress": "15.19.0",
+    "cypress": "15.20.0",
     "dts-bundle-generator": "9.5.1",
     "esbuild": "0.28.1",
     "npm-pkg-lint": "5.2.2",
