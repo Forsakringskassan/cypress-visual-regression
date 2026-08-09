@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@forsakringskassan/commitlint-config": "4.2.7",
-    "@forsakringskassan/eslint-config": "15.6.0",
+    "@forsakringskassan/eslint-config": "15.6.4",
     "@forsakringskassan/eslint-config-jest": "15.6.0",
     "@forsakringskassan/eslint-config-typescript": "15.6.0",
     "@forsakringskassan/jest-config": "30.4.1",
