@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [5.1.1](https://github.com/Forsakringskassan/cypress-visual-regression/compare/v5.1.0...v5.1.1) (2026-09-02)
+
+### Bug Fixes
+
+* subpath exports ([ee8416d](https://github.com/Forsakringskassan/cypress-visual-regression/commit/ee8416dbe1c129d35e51385a2024770e30c5ace9))
+
 ## [5.1.0](https://github.com/Forsakringskassan/cypress-visual-regression/compare/v5.0.0...v5.1.0) (2026-08-06)
 
 ### Features
