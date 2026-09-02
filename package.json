@@ -15,6 +15,24 @@
   },
   "license": "MIT",
   "author": "Försäkringskassan",
+  "exports": {
+    "./commands": {
+      "types": "./commands.d.ts",
+      "default": "./commands.js"
+    },
+    "./commands.js": {
+      "types": "./commands.d.ts",
+      "default": "./commands.js"
+    },
+    "./plugin": {
+      "types": "./plugin.d.ts",
+      "default": "./plugin.js"
+    },
+    "./plugin.js": {
+      "types": "./plugin.d.ts",
+      "default": "./plugin.js"
+    }
+  },
   "files": [
     "dist",
     "commands.js",
