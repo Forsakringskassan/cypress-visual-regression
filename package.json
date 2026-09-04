@@ -84,7 +84,7 @@
     "@forsakringskassan/jest-config": "30.4.2",
     "@forsakringskassan/prettier-config": "3.7.8",
     "@html-validate/release-scripts": "7.6.8",
-    "@jest/globals": "30.5.0",
+    "@jest/globals": "30.5.1",
     "@tsconfig/node22": "22.0.6",
     "@tsconfig/recommended": "1.0.13",
     "@tsconfig/strictest": "2.0.8",
