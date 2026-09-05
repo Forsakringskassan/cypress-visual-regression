@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [5.2.0](https://github.com/Forsakringskassan/cypress-visual-regression/compare/v5.1.1...v5.2.0) (2026-09-05)
+
+### Features
+
+* **deps:** support cypress v16 ([d7b5554](https://github.com/Forsakringskassan/cypress-visual-regression/commit/d7b5554b57afc837a5fdbb65bf850259d9699d94))
+
 ## [5.1.1](https://github.com/Forsakringskassan/cypress-visual-regression/compare/v5.1.0...v5.1.1) (2026-09-02)
 
 ### Bug Fixes
