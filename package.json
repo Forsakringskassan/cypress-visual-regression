@@ -105,6 +105,7 @@
     "node": "^22.16 || >= 24"
   },
   "allowScripts": {
+    "@parcel/watcher": false,
     "cypress": false,
     "esbuild": true,
     "fsevents": false,
