@@ -8,7 +8,6 @@
 /* eslint-disable prefer-template -- technical debt */
 /* eslint-disable sonarjs/no-extra-arguments -- technical debt */
 /* eslint-disable sonarjs/no-implicit-global -- technical debt */
-/* eslint-disable sonarjs/no-nested-functions -- technical debt */
 /* eslint-disable sonarjs/no-redundant-assignments -- technical debt */
 /* eslint-disable unicorn/consistent-function-scoping -- technical debt */
 /* eslint-disable unicorn/no-break-in-nested-loop -- technical debt */
