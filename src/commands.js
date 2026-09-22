@@ -48,18 +48,20 @@ function takeScreenshotsUntilMatch(args, options, remainingAttempts) {
     cy.task("toMatchScreenshotsPlugin", options, {
         log: false,
     }).then((result) => {
-        const attemptsLeft = remainingAttempts - 1;
-        if (result.error) {
-            if (attemptsLeft === 0) {
-                if (args.type === "base") {
-                    return;
-                }
-                throw new Error(result.error);
-            }
-            cy.log("Retrying after 200ms");
-            cy.wait(200);
-            takeScreenshotsUntilMatch(args, options, attemptsLeft);
+        if (!result.error) {
+            return;
         }
+
+        const attemptsLeft = remainingAttempts - 1;
+        if (attemptsLeft === 0) {
+            if (args.type === "base") {
+                return;
+            }
+            throw new Error(result.error);
+        }
+        cy.log("Retrying after 200ms");
+        cy.wait(200);
+        takeScreenshotsUntilMatch(args, options, attemptsLeft);
     });
 }
 
