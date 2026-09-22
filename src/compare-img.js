@@ -17,6 +17,7 @@
 /* eslint-disable unicorn/no-useless-else -- technical debt */
 /* eslint-disable sonarjs/no-duplicated-branches -- technical debt */
 /* eslint-disable unicorn/no-duplicate-if-branches -- technical debt */
+/* eslint-disable unicorn/prefer-early-return -- technical debt */
 /* eslint-disable unicorn/prefer-unary-minus -- technical debt */
 
 /*
