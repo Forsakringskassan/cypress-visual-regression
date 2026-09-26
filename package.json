@@ -82,7 +82,7 @@
     "@forsakringskassan/eslint-config-jest": "15.10.0",
     "@forsakringskassan/eslint-config-typescript": "15.10.0",
     "@forsakringskassan/jest-config": "30.4.4",
-    "@forsakringskassan/prettier-config": "3.7.10",
+    "@forsakringskassan/prettier-config": "3.7.11",
     "@html-validate/release-scripts": "7.6.12",
     "@jest/globals": "30.5.2",
     "@tsconfig/node22": "22.0.6",
