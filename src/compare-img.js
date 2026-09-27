@@ -10,7 +10,6 @@
 /* eslint-disable sonarjs/no-implicit-global -- technical debt */
 /* eslint-disable sonarjs/no-redundant-assignments -- technical debt */
 /* eslint-disable unicorn/consistent-function-scoping -- technical debt */
-/* eslint-disable unicorn/no-break-in-nested-loop -- technical debt */
 /* eslint-disable unicorn/no-computed-property-existence-check -- technical debt */
 /* eslint-disable unicorn/no-nonstandard-builtin-properties -- technical debt */
 /* eslint-disable unicorn/prefer-logical-operator-over-ternary -- technical debt */
