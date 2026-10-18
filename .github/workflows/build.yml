@@ -20,7 +20,7 @@ jobs:
             - name: Install dependencies
               run: npm ci
             - name: Jest
-              uses: Forsakringskassan/jest-config@2aab0fd437d4433b1a2df1cd6b90aeb326f606ed # v30.4.6
+              uses: Forsakringskassan/jest-config@6565d5af83795525379694b9d434c625a8e46672 # v30.4.7
             - name: Build
               run: npm run --if-present build
 
