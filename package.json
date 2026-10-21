@@ -57,6 +57,13 @@
     "test": "jest",
     "prepare": "commitlint-config"
   },
+  "allowScripts": {
+    "@parcel/watcher": false,
+    "cypress": false,
+    "esbuild": true,
+    "fsevents": false,
+    "unrs-resolver": true
+  },
   "commitlint": {
     "extends": [
       "@forsakringskassan/commitlint-config/no-jira"
@@ -82,7 +89,7 @@
     "@forsakringskassan/eslint-config-jest": "15.12.2",
     "@forsakringskassan/eslint-config-typescript": "15.12.0",
     "@forsakringskassan/jest-config": "30.4.7",
-    "@forsakringskassan/prettier-config": "3.7.12",
+    "@forsakringskassan/prettier-config": "3.7.13",
     "@html-validate/release-scripts": "7.6.17",
     "@jest/globals": "30.5.2",
     "@tsconfig/node22": "22.0.6",
@@ -103,12 +110,5 @@
   },
   "engines": {
     "node": "^22.16 || >= 24"
-  },
-  "allowScripts": {
-    "@parcel/watcher": false,
-    "cypress": false,
-    "esbuild": true,
-    "fsevents": false,
-    "unrs-resolver": true
   }
 }
